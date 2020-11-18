@@ -15,11 +15,10 @@ after_success:
   - docker build -t talal89/docker-react-nginx ./nginx
   - docker build -t talal89/docker-react-server ./server
   - docker build -t talal89/docker-react-worker ./worker
-
-# Login to the docker CLI
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-# PUSH the iamges to docker hub
-- docker push talal89/docker-react-client
-- docker push talal89/docker-react-nginx
-- docker push talal89/docker-react-server
-- docker push talal89/docker-react-worker
+  # Login to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin 
+  # PUSH the iamges to docker hub
+  - docker push talal89/docker-react-client
+  - docker push talal89/docker-react-nginx
+  - docker push talal89/docker-react-server
+  - docker push talal89/docker-react-worker
