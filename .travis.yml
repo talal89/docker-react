@@ -22,3 +22,15 @@ after_success:
   - docker push talal89/docker-react-nginx
   - docker push talal89/docker-react-server
   - docker push talal89/docker-react-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'me-south-1'
+  app: 'docker-multicontainer'
+  env: 'DockerMulticontainer-env'
+  bucket_name: 'elasticbeanstalk-me-south-1-488483174169'
+  bucket_path: 'docker-multi'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
